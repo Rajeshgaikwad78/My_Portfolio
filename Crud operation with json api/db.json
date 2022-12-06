@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "name": "Rajesh suresh Gaikwad",
+      "username": "raj78",
+      "email": "raj78.7777@gmail.com",
+      "phone": "07875782957",
+      "website": "demarco.info",
+      "id": 1
+    },
+    {
+      "name": "Mahesh",
+      "username": "mahesh78",
+      "email": "mahesh@gmail.com",
+      "phone": "880782288",
+      "website": "mahi.com",
+      "id": 2
+    }
+  ]
+}
