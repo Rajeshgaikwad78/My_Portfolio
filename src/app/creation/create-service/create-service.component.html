@@ -1,0 +1,421 @@
+<!--<div class="card shadow">-->
+<!--  <div class="card-header">-->
+<!--    <h2 class="m-0 font-weight-bold text-primary text-center">{{button ? 'Update Service' : 'Add Service/Recurring'}}-->
+<!--    </h2>-->
+<!--  </div>-->
+<!--  <form (ngSubmit)="onSubmit()" [formGroup]="serviceForm">-->
+<!--    <div class="card-body">-->
+<!--      <div class="bg-white">-->
+<!--        <div class="row mt-2">-->
+<!--          <div class="form-group col-md-1 col-sm-12">-->
+<!--            <label>Service No</label>-->
+<!--            <input type="text" class="form-control rounded-0 bg-white" [value]="srNo" disabled />-->
+<!--          </div>-->
+<!--          <div class="form-group col-md-3 col-sm-12">-->
+<!--            <label>Service Group</label><a class="text-success ml-5" data-toggle="modal"-->
+<!--                                                             data-target="#serviceGroup"><i class="fas fa-plus-square"></i></a>-->
+<!--            <select class="form-control rounded-0" formControlName="serviceGroupId">-->
+<!--              <option value="" selected disabled>&#45;&#45;Select&#45;&#45;</option>-->
+<!--              <option [ngValue]="list.serviceGroupId" *ngFor="let list of serviceGroup">{{list.serviceGroupName}}-->
+<!--              </option>-->
+<!--            </select>-->
+<!--          </div>-->
+<!--          <div class="form-group col-md-3 col-sm-12">-->
+<!--            <label>Service Category</label><a class="text-success ml-5" data-toggle="modal"-->
+<!--                                                                data-target="#serviceCategory"><i class="fas fa-plus-square"></i></a>-->
+<!--            <select class="form-control rounded-0" formControlName="serviceCategoryId">-->
+<!--              <option value="" selected disabled>&#45;&#45;Select&#45;&#45;</option>-->
+<!--              <option [ngValue]="list.serviceCategoryId" *ngFor="let list of serviceCategory">-->
+<!--                {{list.serviceCategoryName}}</option>-->
+<!--            </select>-->
+<!--          </div>-->
+<!--          <div class="form-group col-md-3 col-sm-12">-->
+<!--            <label>Service Type</label><a class="text-success ml-5" data-toggle="modal"-->
+<!--                                                            data-target="#exampleModal"><i class="fas fa-plus-square"></i></a>-->
+<!--            <select class="form-control rounded-0" formControlName="serviceTypeId">-->
+<!--              <option value="" selected disabled>&#45;&#45;Select&#45;&#45;</option>-->
+<!--              <option [value]="list.serviceTypeId" *ngFor="let list of serviceType">{{list.serviceTypeName}}</option>-->
+<!--            </select>-->
+<!--          </div>-->
+<!--          <div class="form-group col-md-2 col-sm-12">-->
+<!--            <label>Current Date</label>-->
+<!--            <input [ngModelOptions]="{standalone: true}" class="form-control bg-white rounded-0" [(ngModel)]="pkk" disabled>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="row mt-2">-->
+<!--          <div class="form-group col-md-3 col-sm-12">-->
+<!--            <label>Company Name</label><a class="text-success ml-4"-->
+<!--                                                            routerLink="/service/servicecreation/companycreation"><i class="fas fa-plus-square"></i></a>-->
+<!--            <select class="form-control rounded-0" formControlName="companyId">-->
+<!--              <option value="" selected disabled>&#45;&#45;Select&#45;&#45;</option>-->
+<!--              <option [ngValue]="list.companyId" *ngFor="let list of company">{{list.companyName}}</option>-->
+<!--            </select>-->
+<!--          </div>-->
+<!--          <div class="form-group col-md-2 col-sm-12">-->
+<!--            <label>Branch Name</label><a class="text-success ml-5"-->
+<!--                                         routerLink="/service/servicecreation/branchcreation"><i class="fas fa-plus-square"></i></a>-->
+<!--            <select class="form-control rounded-0" formControlName="branchId">-->
+<!--              <option value="" selected disabled>&#45;&#45;Select&#45;&#45;</option>-->
+<!--              <option [ngValue]="list.branchId" *ngFor="let list of branch">{{list.branchName}}</option>-->
+<!--            </select>-->
+<!--          </div>-->
+<!--          <div class="form-group col-md-2 col-sm-12">-->
+<!--            <label>Department Name</label><a class="text-success ml-4"-->
+<!--                                             routerLink="/service/servicecreation/departmentcreation"><i class="fas fa-plus-square"></i></a>-->
+<!--            <select class="form-control rounded-0" formControlName="departmentId">-->
+<!--              <option value="" selected disabled>&#45;&#45;Select&#45;&#45;</option>-->
+<!--              <option [ngValue]="list.departmentId" *ngFor="let list of department">{{list.departmentName}}</option>-->
+<!--            </select>-->
+<!--          </div>-->
+<!--          <div class="form-group col-md-2 col-sm-12">-->
+<!--            <label>Client Name</label><a class="text-success ml-5"-->
+<!--                                                           routerLink="/service/servicecreation/clientcreation"><i class="fas fa-plus-square"></i></a>-->
+<!--            <select class="form-control rounded-0" formControlName="clientId"-->
+<!--                    [ngClass]="{ 'is-invalid': submitted && f.clientId.errors }" (ngModelChange)="getClientIdOnChange($event)"-->
+<!--                    #clientName>-->
+<!--              <option value="" selected disabled>&#45;&#45;Select&#45;&#45;</option>-->
+<!--              <option [ngValue]="list.clientId" *ngFor="let list of client">{{list.firstName + ' ' + list.lastName}}-->
+<!--              </option>-->
+<!--            </select>-->
+<!--          </div>-->
+<!--          <div class="form-group col-md-3 col-sm-12">-->
+<!--            <label>Service Recurring Status</label><br>-->
+<!--            <a (click)="option1()">-->
+<!--              <div class="form-check form-check-inline">-->
+<!--                <input class="form-check-input" type="radio" name="isRecurringService"-->
+<!--                       formControlName="isRecurringService" id="Radio1" [value]="1">-->
+<!--                <label class="form-check-label" for="Radio1">Yes</label>-->
+<!--              </div>-->
+<!--            </a>-->
+<!--            <a (click)="serperiod()">-->
+<!--              <div class="form-check form-check-inline">-->
+<!--                <input class="form-check-input" type="radio" name="isRecurringService"-->
+<!--                       formControlName="isRecurringService" id="Radio2" [value]="0">-->
+<!--                <label class="form-check-label" for="Radio2">No</label>-->
+<!--                </div>-->
+<!--            </a>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="row mt-2">-->
+<!--          <div class="form-group col-md-3 col-sm-12" *ngIf="recurringYes">-->
+<!--            <a (click)="occurrence()">-->
+<!--              <div class="form-check form-check-inline">-->
+<!--                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"-->
+<!--                       value="option1">-->
+<!--                <label class="form-check-label" for="inlineRadio3">Occurrence</label>-->
+<!--              </div>-->
+<!--            </a>-->
+<!--            <a (click)="period1()">-->
+<!--              <div class="form-check form-check-inline">-->
+<!--                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Period" value="option2">-->
+<!--                <label class="form-check-label" for="Period">Period</label>-->
+<!--              </div>-->
+<!--            </a>-->
+<!--          </div>-->
+<!--          <div class="form-group col-md-3 col-sm-12" *ngIf="occdate">-->
+<!--            <label>Start Date</label>-->
+<!--            <input class="form-control rounded-0" type="date" />-->
+<!--          </div>-->
+<!--          <div class="form-group col-md-3 col-sm-12" *ngIf="occdate">-->
+<!--            <label>End Date</label>-->
+<!--            <input class="form-control rounded-0" type="date" />-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="row mt-2" *ngIf="recperiod">-->
+<!--          <div class="form-group col-md-3 col-sm-12">-->
+<!--            <label>Start Date</label>-->
+<!--            <input class="form-control rounded-0" type="date" formControlName="serviceRecurringDate" #myNameElem />-->
+<!--          </div>-->
+<!--          <div class="form-group col-md-3 col-sm-12">-->
+<!--            <label>Quantity</label>-->
+<!--            <input class="form-control rounded-0" type="number" formControlName="servicePeriod" min="1" #Wperiod />-->
+<!--          </div>-->
+<!--          <div class="form-group col-md-6 col-sm-12">-->
+<!--            <label>Terms</label>-->
+<!--            <br>-->
+
+<!--            <a (click)="weekly()">-->
+<!--              <div class="form-check form-check-inline">-->
+<!--                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio6">-->
+<!--                <label class="form-check-label" for="inlineRadio6">Weekly</label>-->
+<!--              </div>-->
+<!--            </a>-->
+<!--            <a (click)="monthly()">-->
+<!--              <div class="form-check form-check-inline">-->
+<!--                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio7">-->
+<!--                <label class="form-check-label" for="inlineRadio7">Monthly</label>-->
+<!--              </div>-->
+<!--            </a>-->
+<!--            <a (click)="quarterly()">-->
+<!--              <div class="form-check form-check-inline">-->
+<!--                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio8">-->
+<!--                <label class="form-check-label" for="inlineRadio8">Quarterly</label>-->
+<!--              </div>-->
+<!--            </a>-->
+<!--            <a (click)="halfYearly()">-->
+<!--              <div class="form-check form-check-inline">-->
+<!--                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio9">-->
+<!--                <label class="form-check-label" for="inlineRadio9">Half Yearly</label>-->
+<!--              </div>-->
+<!--            </a>-->
+<!--            <a (click)="yearly()">-->
+<!--              <div class="form-check form-check-inline">-->
+<!--                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5">-->
+<!--                <label class="form-check-label" for="inlineRadio5">Yearly</label>-->
+<!--              </div>-->
+<!--            </a>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="row mt-2" *ngIf="recperiod">-->
+<!--          <div class="col-md-3 col-sm-12 form-group">-->
+<!--            <label>Reccuring Next Date</label>-->
+<!--            <input class="form-control rounded-0 bg-white" formControlName="serviceStartDate" #startDate readonly />-->
+<!--          </div>-->
+<!--          <div class="col-md-3 col-sm-12 form-group">-->
+<!--            <label>Reccuring End Date</label>-->
+<!--            <input class="form-control rounded-0 bg-white" formControlName="serviceEndDate" #endDate readonly />-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="row mt-2" *ngIf="period">-->
+<!--          <div class="form-group col-lg-3 co-sm-12">-->
+<!--            <label>From</label>-->
+<!--            <input class="form-control rounded-0" type="date" #fincialDate>-->
+<!--          </div>-->
+<!--          <div class="form-group col-lg-3 co-sm-12">-->
+<!--            <label>To</label>-->
+<!--            <input class="form-control rounded-0" type="date">-->
+<!--          </div>-->
+<!--          <div class="form-group col-lg-3 co-sm-12">-->
+<!--            <label>financial Year</label>-->
+<!--            <input class="form-control rounded-0" #fincialYear>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="row mt-2">-->
+<!--          <div class="form-group col-md-2 col-sm-12">-->
+<!--            <label>Processing Fees</label>-->
+<!--            <input type="text" readonly class="form-control rounded-0 bg-white" formControlName="serviceFees"-->
+<!--                   #serviceFees>-->
+<!--          </div>-->
+<!--          <div class="form-group col-md-2 col-sm-12">-->
+<!--            <label>Quantity</label>-->
+<!--            <input type="text" class="form-control rounded-0" min="1" (keyup)="allFees()"-->
+<!--                   formControlName="serviceQuantity" #serviceQuantity />-->
+<!--          </div>-->
+<!--          <div class="form-group col-md-2 col-sm-12">-->
+<!--            <label>Total Fees</label>-->
+<!--            <input type="text" readonly class="form-control rounded-0 bg-white" formControlName="totalFees" #totalFees>-->
+<!--          </div>-->
+<!--          <div class="form-group col-md-6 col-sm-12">-->
+<!--            <label>Service Note</label>-->
+<!--            <textarea class="form-control rounded-0" rows="1"></textarea>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="row">-->
+<!--          <div class="col-md-9 col-sm-12">-->
+<!--            <a class="float-right" data-toggle="modal" data-target="#document"><i class="fas fa-plus-square"></i></a>-->
+<!--            <div class="row">-->
+<!--              <h3 class="text-primary">Select Document</h3>-->
+<!--              <div class="col-md-6 col-sm-12">-->
+<!--                <input type="text" placeholder="Search Document..." class="form-control rounded-0"-->
+<!--                       [(ngModel)]="searchText" [ngModelOptions]="{standalone: true}">-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="row pre-scrollable">-->
+<!--              <div class="form-group col-md-2 col-sm-12" *ngFor="let item of documentlist">-->
+<!--                <div class="form-check">-->
+<!--                  <input class="form-check-input" type="checkbox" value="{{item.documentId}}"-->
+<!--                         (change)="documentserviceChange($event)">-->
+<!--                  <label class="form-check-label mt-2">-->
+<!--                    {{item.documentName}}-->
+<!--                  </label>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-md-3 col-sm-12 mt-5">-->
+<!--            <label>Doc Submited By</label>-->
+<!--            <input class="form-control rounded-0">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="card-footer text-center">-->
+<!--      <button type="submit" class="btn btn-sm btn-primary">{{button ? 'Update' : 'Submit'}}</button>-->
+<!--      <button routerLink="/service" class="btn btn-sm btn-secondary ml-2">Cancel</button>-->
+<!--    </div>-->
+<!--  </form>-->
+<!--</div>-->
+
+
+<!--&lt;!&ndash;Modal&ndash;&gt;-->
+<!--<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"-->
+<!--     aria-hidden="true">-->
+<!--  <div class="modal-dialog modal-md" role="document">-->
+<!--    <div class="modal-content">-->
+<!--      <form [formGroup]="serviceTypesForm" (ngSubmit)="addType()">-->
+<!--        <div class="modal-header">-->
+<!--          <h2 class="modal-title text-success">Add Service Type</h2>-->
+<!--          <button type="button" #closebutton class="close" data-dismiss="modal" aria-label="Close">-->
+<!--            <span aria-hidden="true">&times;</span>-->
+<!--          </button>-->
+<!--        </div>-->
+<!--        <div class="modal-body">-->
+<!--          <div class="row">-->
+<!--            <div class="col-md-12 form-group">-->
+<!--              <label>Service Type</label>-->
+<!--              <input class="form-control rounded-0" formControlName="serviceTypeName" />-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="row">-->
+<!--            <div class="col-md-6 form-group">-->
+<!--              <label>Service Cost</label>-->
+<!--              <input class="form-control rounded-0" formControlName="serviceCost" />-->
+<!--            </div>-->
+<!--            <div class="col-md-6 form-group">-->
+<!--              <label>GST Percentage</label>-->
+<!--              <input class="form-control rounded-0" formControlName="GstPercentage" />-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <a class="float-right" data-toggle="modal" title="Add Document" data-target="#document1"><i-->
+<!--            class="fas fa-plus-square"></i></a>-->
+<!--          <div class="row">-->
+<!--            <h3 class="text-primary">Select Document</h3>-->
+<!--          </div>-->
+<!--          <div class="row">-->
+<!--            <div class="col-md-6 col-sm-12">-->
+<!--              <input type="text" placeholder="Search Document..." class="form-control rounded-0"-->
+<!--                     [(ngModel)]="searchText" [ngModelOptions]="{standalone: true}">-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="row">-->
+<!--            <div class="form-group col-md-3 col-sm-12" *ngFor="let list of document | filter:searchText">-->
+<!--              <div class="form-check">-->
+<!--                <input class="form-check-input" type="checkbox" value="{{list.documentId}}"-->
+<!--                       (change)="documentChange($event)">-->
+<!--                <label class="form-check-label mt-2">-->
+<!--                  {{list.documentName}}-->
+<!--                </label>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="modal-footer">-->
+<!--          <button type="submit" class="btn btn-sm btn-primary">Add Type</button>-->
+<!--          <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>-->
+<!--        </div>-->
+<!--      </form>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+
+<!--&lt;!&ndash; Modal &ndash;&gt;-->
+<!--<div class="modal fade" id="serviceCategory" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"-->
+<!--     aria-hidden="true">-->
+<!--  <div class="modal-dialog modal-md" role="document">-->
+<!--    <div class="modal-content">-->
+<!--      <form [formGroup]="serviceCategoryForm" (ngSubmit)="addCategory()">-->
+<!--        <div class="modal-header">-->
+<!--          <h2 class="modal-title text-success" id="Category">Add Service Category</h2>-->
+<!--          <button type="button" #categoryClose class="close" data-dismiss="modal" aria-label="Close">-->
+<!--            <span aria-hidden="true">&times;</span>-->
+<!--          </button>-->
+<!--        </div>-->
+<!--        <div class="modal-body">-->
+<!--          <div class="row">-->
+<!--            <div class="col-md-12 form-group">-->
+<!--              <label>Service Category</label>-->
+<!--              <input class="form-control rounded-0" formControlName="serviceCategoryName" />-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="modal-footer">-->
+<!--          <button type="submit" class="btn btn-sm btn-primary">Add Category</button>-->
+<!--          <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>-->
+<!--        </div>-->
+<!--      </form>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;Modal&ndash;&gt;-->
+<!--<div class="modal fade" id="serviceGroup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"-->
+<!--     aria-hidden="true">-->
+<!--  <div class="modal-dialog modal-md" role="document">-->
+<!--    <div class="modal-content">-->
+<!--      <form [formGroup]="serviceGroupForm" (ngSubmit)="addGroup()">-->
+<!--        <div class="modal-header">-->
+<!--          <h2 class="modal-title text-success">Add Service Group</h2>-->
+<!--          <button type="button" #groupClose class="close" data-dismiss="modal" aria-label="Close">-->
+<!--            <span aria-hidden="true">&times;</span>-->
+<!--          </button>-->
+<!--        </div>-->
+<!--        <div class="modal-body">-->
+<!--          <div class="row">-->
+<!--            <div class="col-md-12 form-group">-->
+<!--              <input placeholder="Service Group" class="form-control rounded-0" formControlName="serviceGroupName" />-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="modal-footer">-->
+<!--          <button type="submit" class="btn btn-sm btn-primary">Add Group</button>-->
+<!--          <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>-->
+<!--        </div>-->
+<!--      </form>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+
+<!--&lt;!&ndash;Modal&ndash;&gt;-->
+<!--<div class="modal fade" id="document1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"-->
+<!--     aria-hidden="true">-->
+<!--  <div class="modal-dialog modal-md" role="document">-->
+<!--    <div class="modal-content">-->
+<!--      <form [formGroup]="documentForm" (ngSubmit)="addDocument()">-->
+<!--        <div class="modal-header">-->
+<!--          <h2 class="modal-title text-success">Add Document</h2>-->
+<!--          <button type="button" #closeDocument class="close" data-dismiss="modal" aria-label="Close">-->
+<!--            <span aria-hidden="true">&times;</span>-->
+<!--          </button>-->
+<!--        </div>-->
+<!--        <div class="modal-body">-->
+<!--          <div class="row">-->
+<!--            <div class="col-md-12 form-group">-->
+<!--              <label>Add Document</label>-->
+<!--              <input class="form-control rounded-0" formControlName="documentName">-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="modal-footer">-->
+<!--          <button type="submit" class="btn btn-sm btn-primary">Add</button>-->
+<!--          <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>-->
+<!--        </div>-->
+<!--      </form>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--<div class="modal" tabindex="-1" [ngStyle]="{'display':display}" role="dialog" aria-labelledby="exampleModalLabel"-->
+<!--     aria-hidden="true">-->
+<!--  <div class="modal-dialog modal-md" role="document">-->
+<!--    <div class="modal-content">-->
+<!--      <form>-->
+<!--        <div class="modal-body">-->
+<!--          <div class="row">-->
+<!--            <div class="col-md-12 form-group">-->
+<!--              <h4 class="text-success">Service Created SuccessFully!</h4>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="modal-footer">-->
+<!--          <button type="submit" routerLink="/serviceAssign/{{this.clientIdValue}}/{{this.serviceTypeIdValue}}"-->
+<!--                  class="btn btn-sm btn-primary" data-dismiss="modal">Assign Now</button>-->
+<!--          <button type="button" routerLink="/service" class="btn btn-sm btn-secondary" data-dismiss="modal">Assign-->
+<!--            Letter</button>-->
+<!--        </div>-->
+<!--      </form>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+

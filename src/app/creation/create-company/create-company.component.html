@@ -1,0 +1,157 @@
+<div class="card shadow">
+  <div class="card-header">
+    <h3 class="m-0 font-weight-bold text-primary text-center">{{update ? 'Update Company' : 'Add Company'}}</h3>
+  </div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="companyForm">
+    <div class="card-body">
+      <div class="bg-white">
+
+        <div class="row mt-2">
+          <div class="form-group col-md-2 col-sm-12">
+            <label>Company PAN No</label>
+            <input type="text" class="form-control pan rounded-0" formControlName="companyPan" />
+          </div>
+          <div class="form-group col-md-3 col-sm-12">
+            <label>Company Type</label>
+            <!-- <input class="form-control rounded-0 bg-white" disabled #panType> -->
+            <select class="form-control rounded-0" formControlName="companyTypeId">
+              <option value="" selected disabled>--Select--</option>-
+              <option>Private Comapny</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2 col-sm-12">
+            <label>GSTIN/UIN</label>
+            <input type="text" class="form-control rounded-0" formControlName="companyGstinNo"/>
+          </div>
+          <div class="form-git group col-md-3 col-sm-12">
+            <label>Company Name</label>
+            <input type="text" class="form-control rounded-0" formControlName="companyName" />
+          </div>
+          <div class="form-group col-md-2 col-sm-12">
+            <label>Company Owner</label>
+            <input type="text" class="form-control rounded-0" formControlName="companyTanNo" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-2 col-sm-12">
+            <label>E-mail Address</label>
+            <input type="email" class="form-control rounded-0" formControlName="companyEmail"/>
+          </div>
+          <div class="form-group col-md-2 col-sm-12">
+            <label>Phone No</label>
+            <input type="text" class="form-control rounded-0" formControlName="companyPhone"/>
+          </div>
+          <div class="form-group col-md-2 col-sm-12">
+            <label>Creation Date</label>
+            <input class="form-control rounded-0 bg-white" />
+          </div>
+          <div class="form-group col-md-2 col-sm-12">
+            <label>TAN No</label>
+            <input type="text" class="form-control rounded-0" formControlName="companyTanNo" />
+          </div>
+          <div class="form-group col-md-2 col-sm-12">
+            <label>CIN No</label>
+            <input type="text" class="form-control rounded-0" formControlName="companyCinNo" />
+          </div>
+          <div class="form-group col-md-2 col-sm-12">
+            <label>PTEC</label>
+            <input type="text" class="form-control rounded-0" formControlName="companyPtec" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-2 col-sm-12">
+            <label>PTRC</label>
+            <input type="text" class="form-control rounded-0" formControlName="companyPtrc" />
+          </div>
+          <div class="form-group col-md-2 col-sm-12">
+            <label>ESIC</label>
+            <input type="text" class="form-control rounded-0" formControlName="companyEsic" />
+          </div>
+          <div class="form-group col-md-2 col-sm-12">
+            <label>PF</label>
+            <input type="text" class="form-control rounded-0" formControlName="companyPfNo" />
+          </div>
+          <div class="form-group col-md-2 col-sm-12">
+            <label>VAT No</label>
+            <input type="text" class="form-control rounded-0" formControlName="companyVatNo" maxlength="12" />
+          </div>
+          <div class="form-group col-md-2 col-sm-12">
+            <label>MSME</label>
+            <input type="text" class="form-control rounded-0" formControlName="companyMsme" />
+          </div>
+          <div class="form-group col-md-2 col-sm-12">
+            <label>BOCW</label>
+            <input type="text" class="form-control rounded-0" formControlName="companyBocw" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-2 col-sm-12">
+            <label>Other Trade License</label>
+            <input type="text" class="form-control rounded-0" formControlName="companyOtl" />
+          </div>
+          <div class="form-group col-md-4 col-sm-12">
+            <label>Nature Of Business</label>
+            <select formControlName="companyNob" class="form-control rounded-0">
+              <option value="" disabled>--Select--</option>
+              <option>Share Of Income From Firm Only</option>
+              <option>Agriculture,Animal Husbanry & Forestry</option>
+              <option>Fish Farming</option>
+              <option>Mining And Quarrying</option>
+              <option>Manufacturing</option>
+              <option>Electrity,Gas And Water</option>
+              <option>Construction</option>
+              <option>Real Estate And Renting Services</option>
+              <option>Renting Of Machinery</option>
+              <option>Wholesale And Retail Trade</option>
+              <option>Hotels,Restaurants And Hospitality Services</option>
+              <option>Transport & Logistics Services</option>
+              <option>Post & Telecommunication Services</option>
+              <option>Financial Intermediation Services</option>
+              <option>Computer And Related Services</option>
+              <option>Research And Development</option>
+              <option>Professions</option>
+              <option>Education Services</option>
+              <option>Helth Care Services</option>
+              <option>Social And Community Work</option>
+              <option>Culture And Sport</option>
+              <option>Other Services</option>
+              <option>Extra Territorial Organisations And Bodies</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2 col-sm-12">
+            <label>Country</label>
+            <select formControlName="companyContry" class="rounded-0 form-control">
+              <option value="" disabled>--Select--</option>
+              <option>India</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2 col-sm-12">
+            <label>State</label>
+            <select formControlName="companyState" class="rounded-0 form-control">
+              <option value="" disabled>--Select--</option>
+              <option>Maharashtra</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2 col-sm-12">
+            <label>City</label>
+            <select formControlName="companyCity" class="rounded-0 form-control">
+              <option value="" disabled>--Select--</option>
+              <option>Pune</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-12 col-sm-12">
+            <label>Company Address</label>
+            <textarea class="form-control rounded-0" formControlName="companyAddress"></textarea>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="card-footer text-center">
+      <button type="submit" class="btn btn-sm btn-primary">{{update ? 'Update' : 'Submit'}}</button>
+      <button routerLink="/company" class="btn btn-sm btn-secondary ml-2">Cancel</button>
+    </div>
+  </form>
+</div>

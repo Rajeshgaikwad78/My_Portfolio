@@ -1,0 +1,42 @@
+<div class="card shadow ">
+  <div class="card-header">
+    <a class="btn btn-sm btn-outline-success float-right masterBtn" routerLink="/department/departmentcreation">Add Department +</a>
+    <div class="row">
+      <h3 class="text-primary">Department Details</h3>
+    </div>
+  </div>
+  <div class="card-body">
+    <section>
+      <table class="table table-hover table-responsive-sm table-bordered">
+        <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Dept. Name</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Email</th>
+          <th scope="col">Establish</th>
+          <th scope="col">Company Name</th>
+          <th scope="col">Branch Name</th>
+          <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let list of department; let i = index" [attr.id]="list.id">
+          <td>{{(i+1)}}</td>
+          <td>{{list.departmentName}}</td>
+          <td>{{list.departmentPhone}}</td>
+          <td>{{list.departmentEmail}}</td>
+          <td>{{list.createdOn | date: 'dd/MM/yyy'}}</td>
+          <td>{{list.companyName}}</td>
+          <td>{{list.branchName}}</td>
+          <td><a class="text-primary" title="Edit" routerLink="/department/departmentupdate/{{list.departmentId}}" ><i class="fas fa-user-edit"></i></a>
+            <a class="text-danger ml-1" title="Delete" (click)="deleteDepartment(list)" ><i class="far fa-trash-alt"></i></a></td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</div>
+
+
+

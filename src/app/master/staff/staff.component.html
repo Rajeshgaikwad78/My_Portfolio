@@ -1,0 +1,47 @@
+
+<div class="card shadow ">
+  <div class="card-header">
+    <a class="btn btn-sm btn-outline-success float-right masterBtn" routerLink="/staff/staffcreation">Add Staff +</a>
+    <div class="row">
+      <h3 class="text-primary">Staff Details</h3>
+    </div>
+  </div>
+  <div class="card-body">
+    <section>
+      <table class="table table-hover table-responsive-sm table-bordered" id= "table-id">
+        <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">NAME</th>
+          <th scope="col">PHONE</th>
+          <th scope="col">EMAIL</th>
+          <th scope="col">PASSWORD</th>
+          <th scope="col">PAN</th>
+          <th scope="col">ADDHAR</th>
+          <th scope="col">COMPANY NAME</th>
+          <th scope="col">BRANCH NAME</th>
+          <th scope="col">DEPARTMENT</th>
+          <th scope="col">ACTION</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let list of staff; let i = index" [attr.id]="list.id">
+          <td>{{i+1}}</td>
+          <td>{{list.firstName + ' ' + list.middleName + ' ' + list.lastName}}</td>
+          <td>{{list.mobile}}</td>
+          <td>{{list.email}}</td>
+          <td>{{list.password}}</td>
+          <td>{{list.staffPanNo}}</td>
+          <td>{{list.staffAdharNo}}</td>
+          <td>{{list.companyName}}</td>
+          <td>{{list.branchName}}</td>
+          <td>{{list.departmentName}}</td>
+          <td><a class="text-primary" title="Edit" routerLink="/staff/staffUpdate/{{list.userId}}/{{list.staffId}}"><i class="fas fa-user-edit"></i></a>
+            <a class="text-danger ml-1" title="Delete" (click)="deleteRecord(list)"><i class="far fa-trash-alt"></i></a></td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</div>
+

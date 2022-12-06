@@ -1,0 +1,66 @@
+<div class="card shadow">
+  <div class="card-header">
+    <a class="btn btn-sm btn-outline-primary float-right masterBtn" routerLink="/client/clientcreation">Add Client +</a>
+    <div class="row">
+      <h3 class="text-primary">Client Details</h3>
+    </div>
+  </div>
+  <div class="card-body">
+    <section>
+      <table class="table table-hover table-responsive table-bordered">
+        <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Client Name</th>
+          <th scope="col">Company Name</th>
+          <th scope="col">Branch Name</th>
+          <th scope="col">Department Name</th>
+          <th scope="col">Mobile No</th>
+          <th scope="col">Alt Mobile No</th>
+          <th scope="col">Email</th>
+          <th scope="col">Birth Date</th>
+          <th scope="col">PAN No</th>
+          <th scope="col">Addhar No</th>
+          <th scope="col">Client Firm</th>
+          <th scope="col">Permanent Address</th>
+          <th scope="col">Office Address</th>
+          <th scope="col">Bank Name</th>
+          <th scope="col">Branch Name</th>
+          <th scope="col">Branch Code</th>
+          <th scope="col">Account No</th>
+          <th scope="col">IFSC No</th>
+          <th scope="col">MICR No</th>
+          <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let list of client; let i = index" [attr.id]="list.id">
+          <td>{{ (i+1)}}</td>
+          <td>{{list.firstName + ' ' + list.middleName + ' ' + list.lastName}}</td>
+          <td>{{list.companyName}}</td>
+          <td>{{list.branchName}}</td>
+          <td>{{list.departmentName}}</td>
+          <td>{{list.mobile}}</td>
+          <td>{{list.altMobile}}</td>
+          <td>{{list.email}}</td>
+          <td>{{list.dob}}</td>
+          <td>{{list.clientPanNo}}</td>
+          <td>{{list.clientAdharNo}}</td>
+          <td>{{list.clientFirmName}}</td>
+          <td>{{list.permanentAddress}}</td>
+          <td>{{list.officeAddress}}</td>
+          <td>{{list.bankName}}</td>
+          <td>{{list.bankBranchName}}</td>
+          <td>{{list.bankBranchCode}}</td>
+          <td>{{list.bankAccountNo}}</td>
+          <td>{{list.bankIfscCode}}</td>
+          <td>{{list.bankMicrCode}}</td>
+          <td><a class="text-primary" title="Edit" routerLink="/client/clientUpdate/{{list.userId}}/{{list.clientId}}"><i class="fas fa-user-edit"></i></a>
+            <a class="text-danger ml-1" title="Delete" id="remove" (click)="deleteClient(list)"><i class="far fa-trash-alt"></i></a></td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</div>
+

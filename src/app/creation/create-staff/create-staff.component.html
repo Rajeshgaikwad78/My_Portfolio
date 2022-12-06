@@ -1,0 +1,197 @@
+<div class="card shadow">
+  <div class="card-header">
+    <h3 class="m-0 font-weight-bold text-primary text-center">{{ update ? 'update staff' : 'Add Staff'}}</h3>
+  </div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="staffForm">
+    <div class="card-body">
+      <div class="bg-white" >
+        <div class="row mt-2">
+          <div class="form-group col-md-3 col-sm-12">
+            <label>Company Name</label>
+            <select class="form-control rounded-0" formControlName="companyId">
+              <option value="" disabled>--Select--</option>
+              <option [ngValue]="list.companyId" *ngFor= "let list of company">{{list.companyName}}</option>
+            </select>
+          </div>
+          <div class="form-group col-md-3 col-sm-12">
+            <label>Branch Name</label>
+            <select class="form-control rounded-0" formControlName="branchId">
+              <option value="" disabled>--Select--</option>
+              <option [ngValue]="list.branchId" *ngFor="let list of branch">{{list.branchName}}</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2 col-sm-12" >
+            <label>Department Name</label>
+            <select class="form-control rounded-0" formControlName="departmentId" >
+              <option value="" disabled>--Select--</option>
+              <option [ngValue]="list.departmentId" *ngFor="let list of department">{{list.departmentName}}</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2 col-sm-12">
+            <label>Joining Date</label>
+            <input class="form-control rounded-0" type="date" />
+          </div>
+          <div class="form-group col-md-2 col-sm-12">
+            <label>User Role</label>
+            <select class="form-control rounded-0" formControlName="userRoleId">
+              <option value="" selected disabled>--Select--</option>
+              <option [ngValue]="list.userRoleId" *ngFor="let list of role">{{list.userRole}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="form-group col-md-3 col-sm-12">
+            <label>First Name</label>
+            <input class="form-control rounded-0" type="text" formControlName="firstName"/>
+          </div>
+          <div class="form-group col-md-3 col-sm-12">
+            <label>Middle Name</label>
+            <input class="form-control rounded-0" type="text" formControlName="middleName"/>
+          </div>
+          <div class="form-group col-md-3 col-sm-12">
+            <label>Last Name</label>
+            <input type="text" class="form-control rounded-0" formControlName="lastName"/>
+            </div>
+          <div class="form-group col-md-3 col-sm-12">
+            <label>Gender</label><br>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" formControlName="gender" name="gender" value="1">
+              <label class="form-check-label">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" formControlName="gender" name="gender" value="2">
+              <label class="form-check-label">Female</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" formControlName="gender" name="gender" value="3">
+              <label class="form-check-label">Other</label>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="form-group col-md-2 col-sm-12">
+            <label>Date Of Birth</label>
+            <input type="date" class="form-control rounded-0" formControlName="dob"/>
+          </div>
+          <div class="form-group col-md-2 col-sm-12">
+            <label>Phone</label>
+            <input class="form-control rounded-0" type="text" formControlName="mobile"  numbersOnly maxlength="10"/>
+          </div>
+          <div class="form-group col-md-2 col-sm-12">
+            <label>Emali Address</label>
+            <input type="text" class="form-control rounded-0" formControlName="email"/>
+          </div>
+          <div class="form-group col-md-2 col-sm-12">
+            <label>Password</label>
+            <input class="form-control rounded-0" type="password" formControlName="password">
+          </div>
+          <div class="form-group col-md-2 col-sm-12">
+            <label>PAN No</label>
+            <input class="form-control rounded-0" type="text" formControlName="staffPanNo" maxlength="10">
+          </div>
+          <div class="form-group col-md-2 col-sm-12">
+            <label>Addhar No</label>
+            <input class="form-control rounded-0" type="text" formControlName="staffAdharNo" maxlength="12"  numbersOnly maxlength="12">
+            </div>
+          </div>
+        <div class="row">
+          <div class="form-group col-md-6 col-sm-12">
+            <label>Permanent Address</label>
+            <textarea type="text" class="form-control rounded-0" rows="1" formControlName="permanentAddress"></textarea>
+          </div>
+          <div class="form-group col-md-6 col-sm-12">
+            <label>Company Address</label>
+            <textarea type="text" class="form-control rounded-0" rows="1" formControlName="officeAddress"></textarea>
+          </div>
+        </div>
+        <h2 class="text-info text-center">Bank Details</h2>
+        <div class="row">
+          <div class="form-group col-md-4 col-sm-12">
+            <label>Bank Name</label>
+            <select class="form-control rounded-0" formControlName="bankName">
+              <option value="" disabled>--Select--</option>
+              <option>Allahabad Bank</option>
+              <option> Andhra Bank</option>
+              <option> Bank of Baroda</option>
+              <option> Bank of India</option>
+              <option> Bank of Maharashtra</option>
+              <option> Canara Bank</option>
+              <option> Central Bank of India</option>
+              <option> Corporation Bank</option>
+              <option> Dena Bank</option>
+              <option> Indian Bank</option>
+              <option> Indian Overseas Bank</option>
+              <option> Oriental Bank of Commerce</option>
+              <option> Punjab & Sind Bank</option>
+              <option> Punjab National Bankv</option>
+              <option> Syndicate Bank</option>
+              <option> UCO Bank</option>
+              <option> Union Bank of India</option>
+              <option> United Bank Of India (UBI)</option>
+              <option> Vijaya Bank</option>
+              <option> IDBI Bank Limited</option>
+              <option> State Bank of India</option>
+              <option> State Bank Of Bikaner & Jaipur</option>
+              <option> State Bank of Hyderabad</option>
+              <option> State Bank of Mysore</option>
+              <option> State Bank of Patiala</option>
+              <option> State Bank of Travancore</option>
+              <option> Catholic Syrian Bank</option>
+              <option> City Union Bank</option>
+              <option> Dhanalakshmi Bank</option>
+              <option> Federal Bank</option>
+              <option> ING Vysya Bank Ltd</option>
+              <option> Jammu & Kashmir Bank</option>
+              <option> Karnataka Bank</option>
+              <option> Karur Vysya Bank</option>
+              <option> Lakshmi Vilas Bank</option>
+              <option> The Ratnakar Bank</option>
+              <option> Nanital Bank</option>
+              <option> SBI Commercial & International Bank</option>
+              <option> South India Bank</option>
+              <option> Tamilnadu Mercantile Bank</option>
+              <option> United Western Bank</option>
+              <option> IndusInd Bank</option>
+              <option> HDFC Bank</option>
+              <option> ICICI Bank</option>
+              <option> Axis Bank</option>
+              <option> Kotak Mahindra Bank</option>
+              <option> Yes Bank</option>
+              <option> Citi Bank</option>
+              <option> Deutsche Bank AG</option>
+              <option> HSBC</option>
+              <option> Other</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4 col-sm-12">
+            <label>Branch Name</label>
+            <input type="text" class="form-control rounded-0" formControlName="bankBranchName"/>
+          </div>
+          <div class="form-group col-md-4 col-sm-12">
+            <label>Branch Code</label>
+            <input type="text" class="form-control rounded-0" formControlName="bankBranchCode"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-4 col-sm-12">
+            <label>Account No</label>
+            <input type="text" class="form-control rounded-0" formControlName="bankAccountNo"/>
+          </div>
+          <div class="form-group col-md-4 col-sm-12">
+            <label>IFSC Code</label>
+            <input type="text" class="form-control rounded-0" formControlName="bankIfscCode"/>
+          </div>
+          <div class="form-group col-md-4 col-sm-12">
+            <label>MICR</label>
+            <input type="text" class="form-control rounded-0" formControlName="bankMicrCode">
+          </div>
+        </div>
+    </div>
+    <div class="card-footer text-center">
+      <button type="submit" class="btn btn-sm btn-primary" >{{update ? 'update' : 'submit'}}</button>
+      <button type="reset" class="btn btn-sm btn-secondary ml-2">Reset</button>
+    </div>
+    </div>
+  </form>
+</div>
+

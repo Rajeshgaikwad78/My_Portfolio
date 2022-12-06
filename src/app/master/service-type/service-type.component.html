@@ -1,0 +1,41 @@
+<div class="card shadow ">
+  <div class="card-header">
+    <a class="btn btn-sm btn-outline-success float-right masterBtn" routerLink="/servicetype/servicetypecreation">Add Service Type +</a>
+    <div class="row">
+      <h3 class="text-primary">Service Types Details</h3>
+    </div>
+  </div>
+  <div class="card-body">
+    <section>
+      <table class="table table-hover table-responsive-sm table-bordered">
+        <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Service Type</th>
+          <th scope="col">Service Cost</th>
+          <th scope="col">GST Percentage</th>
+          <th scope="col">Service Category</th>
+          <th scope="col">Service Group</th>
+          <th scope="col">Creation Date</th>
+          <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let list of serviceType; let i = index" [attr.id]="list.id">
+          <td>{{(i+1)}}</td>
+          <td>{{list.serviceTypeName}}</td>
+          <td>{{list.serviceCost}}</td>
+          <td>{{list.GstPercentage}}</td>
+          <td>{{list.serviceCategoryName}}</td>
+          <td>{{list.serviceGroupName}}</td>
+          <td>{{list.createdOn | date: 'dd/MM/yyy'}}</td>
+          <td><a class="text-primary" title="Edit" routerLink="/serviceType/updateServiceType/{{list.serviceTypeId}}"><i class="fas fa-user-edit"></i></a>
+            <a class="text-danger ml-1" title="Delete" (click)="deleteRecord(list)"><i class="far fa-trash-alt"></i></a></td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</div>
+
+

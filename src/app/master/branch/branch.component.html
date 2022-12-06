@@ -1,0 +1,45 @@
+<div class="card shadow">
+  <div class="card-header">
+    <button class="btn btn-sm btn-outline-primary float-right masterBtn"  color="accent" routerLink="/branch/branchcreation">Add Branch +</button>
+    <div class="row">
+      <h3 class="text-primary">Branch Details</h3>
+    </div>
+  </div>
+  <div class="card-body">
+    <section>
+      <table class="table table-hover table-responsive-sm table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Branch Name</th>
+          <th scope="col">PAN No</th>
+          <th scope="col">GSTIN/UIN</th>
+          <th scope="col">TAN No</th>
+          <th scope="col">Email</th>
+          <th scope="col">Company</th>
+          <th scope="col">Phone No</th>
+          <th scope="col">Creation Date</th>
+          <th scope="col">Address</th>
+          <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let list of branch; let i = index" [attr.id]="list.id">
+          <td>{{ (i+1)}}</td>
+          <td>{{ list.branchName}}</td>
+          <td>{{ list.branchPan}}</td>
+          <td>{{ list.branchGstinNo}}</td>
+          <td>{{ list.branchTanNo}}</td>
+          <td>{{ list.branchEmail}}</td>
+          <td>{{ list.companyName}}</td>
+          <td>{{ list.branchPhone}}</td>
+          <td>{{ list.createdOn | date: 'yy/MM/yyyy'}}</td>
+          <td>{{ list.branchAddress}}</td>
+          <td><a class="text-primary" title="Edit" routerLink="/branch/branchUpdate/{{list.branchId}}"><i class="fas fa-user-edit"></i></a>
+            <a class="text-danger ml-1" title="Delete" id="remove" (click)="deleteBranch(list);" ><i class="far fa-trash-alt"></i></a></td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</div>

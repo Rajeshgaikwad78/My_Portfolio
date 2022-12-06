@@ -1,0 +1,86 @@
+<div class="card shadow">
+  <div class="card-header">
+    <h3 class="m-0 font-weight-bold text-primary text-center">{{update ?  'Update' :'Add Branch' }}</h3>
+  </div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="branchForm">
+  <div class="card-body">
+    <div class="bg-white" >
+      <div class="row mt-2">
+        <div class="form-group col-md-3 col-sm-12">
+          <label>Company Name</label>
+          <select class="form-control rounded-0" formControlName="companyId">
+            <option value="" selected disabled>--Select--</option>
+            <option [ngValue]="list.companyId" *ngFor="let list of company">{{list.companyName}}</option>
+          </select>
+        </div>
+
+
+        <div class="form-group col-md-3 col-sm-12">
+          <label>Branch Name</label>
+          <input type="text" class="form-control rounded-0" formControlName="branchName"/>
+
+        </div>
+        <div class="form-group col-md-3 col-sm-12" >
+          <label>PAN No</label>
+          <input type="text" class="form-control rounded-0" formControlName="branchPan"/>
+        </div>
+        <div class="form-group col-md-3 col-sm-12">
+          <label>GSTIN/UIN</label>
+          <input type="text" class="form-control rounded-0" formControlName="branchGstinNo"/>
+
+          </div>
+      </div>
+      <div class="row mt-2">
+        <div class="form-group col-md-3 col-sm-12">
+          <label>TAN No</label>
+          <input type="text" class="form-control rounded-0" formControlName="branchTanNo" />
+        </div>
+        <div class="form-group col-md-3 col-sm-12">
+          <label>Email Address</label>
+          <input type="text" class="form-control rounded-0" formControlName="branchEmail"/>
+        </div>
+        <div class="form-group col-md-3 col-sm-12">
+          <label>Phone No</label>
+          <input type="text" class="form-control rounded-0" formControlName="branchPhone"/>
+        </div>
+        <div class="form-group col-md-3 col-sm-12">
+          <label>Creation Date</label>
+          <input class="form-control rounded-0 bg-white"  readonly/>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="form-group col-md-6 col-sm-12">
+          <label>Branh Address</label>
+            <textarea class="form-control rounded-0" rows="1" formControlName="branchAddress"></textarea>
+        </div>
+        <div class="form-group col-md-2 col-sm-12">
+          <label>Country</label>
+          <select formControlName="branchContry" class="form-control rounded-0">
+            <option value="" disabled>--Select--</option>
+            <option>India</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2 col-sm-12">
+          <label>State</label>
+          <select formControlName="branchState" class="form-control rounded-0">
+            <option value="" disabled>--Select--</option>
+            <option>Maharashtra</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2 col-sm-12">
+          <label>City</label>
+          <select formControlName="branchCity" class="form-control rounded-0">
+            <option value="" disabled>--Select--</option>
+            <option>Pune</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="card-footer text-center">
+      <button type="submit" class="btn btn-sm btn-primary">{{update ?  'Update' :'Add Branch' }}</button>
+      <button routerLink="/branch" class="btn btn-sm btn-secondary ml-2">Cancel</button>
+    </div>
+  </form>
+</div>
+
