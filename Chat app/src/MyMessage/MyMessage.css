@@ -1,0 +1,10 @@
+
+.message-image{
+    float: right;
+}
+.message{
+    float: right;
+    margin-right: 18px;
+    color: white;
+    background-color:#3B2A50 ;
+}
