@@ -1,0 +1,20 @@
+.brandLogo{
+  color: #c9c9c9;
+}
+.header {
+    background: #c9c9c9;
+    height: 4rem;
+    font-size: 1.5rem;
+    
+  }
+  .imgLogo{
+    width: 15%;
+    height: 40%;
+     margin:0 0 0 3%;
+     position: fixed;
+    
+  }
+  .bell{
+   margin-left: 95%;
+  }
+  

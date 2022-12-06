@@ -1,0 +1,23 @@
+
+.login {
+    width: 100%;
+    max-width: 40rem;
+    margin:2% 0 0 10% ;
+    padding: 1rem;
+  }
+  .header{
+    margin-left: 30%;
+  }
+
+  .userForm{
+    width: 150%;
+  }
+  
+ 
+  @media (min-width: 768px) {
+    .control {
+      align-items: center;
+      flex-direction: row;
+    }
+  
+  }

@@ -1,0 +1,12 @@
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 95%;
+    background-color: transparent;
+    color: rgb(90, 51, 51);
+    
+ }
+ .footerName{
+    text-align:right;
+ }
